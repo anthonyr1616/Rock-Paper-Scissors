@@ -1,4 +1,4 @@
-let options = ["rock", "paper", "scissors"];
+let options = ["ROCK", "PAPER", "SCISSORS"];
 
 playGame();
 
@@ -11,11 +11,25 @@ function playGame() {
 
     while (round < 5) {
         while (!options.includes(playerSelection)) {
-            playerSelection = getPlayerChoice().trim().toLowerCase();
+            playerSelection = getPlayerChoice();
+            if (playerSelection)
+                playerSelection = playerSelection.trim().toUpperCase();
         }
 
         computerSelection = getComputerChoice();
         let roundResult = playRound(playerSelection, computerSelection);
+        if (roundResult == "tie") {
+            alert(`You tied this round!`);
+        }
+        else if (roundResult == "win") {
+            playerScore++;
+            alert(`You win this round! ${playerSelection} beats ${computerSelection}!`);
+        }
+        else if (roundResult == "lose") {
+            computerScore++;
+            alert(`You lose this round! ${computerSelection} beats ${playerSelection}!`);
+        }
+
         playerSelection = "";
         round++;
     }
@@ -25,51 +39,27 @@ function playGame() {
     else if (playerScore < computerScore)
         alert(`Game Over! You lose! ${playerScore} - ${computerScore}`)
     else
-        alert (`Gamer Over! You Tied! ${playerScore} - ${computerScore}`)
+        alert(`Gamer Over! You Tied! ${playerScore} - ${computerScore}`)
 
 
     function playRound(playerChoice, computerChoice) {
-
         if (playerChoice === computerChoice) {
-            alert(`Tie you both selected ${playerChoice}`);
+            return "tie";
         }
-        else if (playerChoice == "rock") {
-            if (computerChoice == "scissors") {
-                playerScore++;
-                alert(`You win this round! Rock beats scissors!`);
-            }
-            else {
-                computerScore++;
-                alert(`You lose this round! Paper beats rock`);
-            }
+        else if (playerChoice == "ROCK" && computerChoice == "SCISSORS" ||
+            playerChoice == "SCISSORS" && computerChoice == "PAPER" ||
+            playerChoice == "PAPER" && computerChoice == "ROCK") {
+            return "win";
         }
-        else if (playerChoice == "scissors") {
-            if (computerChoice == "paper") {
-                playerScore++;
-                alert(`You win this round! Scissors beats Paper!`);
-            }
-            else {
-                computerScore++
-                alert(`You lose this round! Rock beats Scissors`);
-            }
-        }
-        else if (playerChoice == "paper") {
-            if (computerChoice == "rock") {
-                playerScore++;
-                alert(`You win this round! Paper beats rock!`);
-            }
-            else {
-                computerScore++;
-                alert(`You lose this round! Scissors beats paper`);
-            }
-        }
+        else
+            return "lose";
     }
 
     function getComputerChoice() {
-        return options[Math.floor(Math.random() * 3)]; // Select one of the options from options based on random 0-2 number
+        return options[Math.floor(Math.random() * 3)];
     }
 
     function getPlayerChoice() {
-        return prompt("Please enter rock, paper, or scissors.");
+        return prompt("Please enter ROCK, PAPER, or SCISSORS.");
     }
 }
