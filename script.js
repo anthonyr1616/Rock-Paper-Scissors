@@ -33,7 +33,7 @@ function playGame() {
         if (playerChoice === computerChoice) {
             alert(`Tie you both selected ${playerChoice}`);
         }
-        else if (playerChoice == "rock" && computerChoice == "scissors") {
+        else if (playerChoice == "rock") {
             if (computerChoice == "scissors") {
                 playerScore++;
                 alert(`You win this round! Rock beats scissors!`);
