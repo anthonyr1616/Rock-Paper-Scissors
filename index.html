@@ -5,26 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script type="text/javascript" src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    <div class="container">
     <div class="scoreArea">
-      <div class="playerScoreArea">
+      <div>
         <h1>Player Score</h1>
-        <p value="0">0</p>
+        <p class="playerScoreCard" value="0">0</p>
       </div>
-      <div class="computerScoreArea">
+      <div>
         <h1>Computer Score</h1>
-        <p value="0">0</p>
+        <p  class="computerScoreCard" value="0">0</p>
       </div>
     </div>
-    <div class="resultArea">
+    <div class="resultsArea">
       <h2 class="roundResult"></h2>
       <h2 class="gameResult"></h2>
     </div>
-    <div class="gameArea">
+    <div class="buttonArea">
       <button value="ROCK">Rock</button>
       <button value="PAPER">Paper</button>
       <button value="SCISSORS">Scissors</button>
     </div>
+  </div>
   </body>
 </html>

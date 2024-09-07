@@ -1,3 +1,6 @@
+"use strict";
+
+
 let options = ["ROCK", "PAPER", "SCISSORS"];
 
 let playerScore = 0;
@@ -38,12 +41,12 @@ function updateScore(result, playerChoice, computerChoice) {
   let roundResultText;
   if (result === "playerWin") {
     roundResultText = `You win this round! ${playerChoice} beats ${computerChoice}!`;
-    let playerScoreCard = document.querySelector(".playerScoreArea p");
+    let playerScoreCard = document.querySelector(".playerScoreCard");
     playerScoreCard.value = playerScore;
     playerScoreCard.textContent = playerScore;
   } else if (result === "playerLose") {
     roundResultText = `You lose this round! ${playerChoice} beats ${computerChoice}!`;
-    let computerScoreCard = document.querySelector(".computerScoreArea p");
+    let computerScoreCard = document.querySelector(".computerScoreCard");
     computerScoreCard.value = computerScore;
     computerScoreCard.textContent = computerScore;
   } else if (result === "tie") {
@@ -52,6 +55,7 @@ function updateScore(result, playerChoice, computerChoice) {
 
   let roundResult = document.querySelector(".roundResult");
   roundResult.textContent = roundResultText;
+  console.log(roundResultText);
   updateRound();
 }
 
@@ -64,48 +68,18 @@ function endGame() {
   let buttons = document.querySelectorAll("button");
   for (let button of buttons) {
     button.disabled = true;
+    button.style["background-color"] = "#F2CC8F";
   }
+  let gameResultText;
+  if (playerScore > computerScore) {
+    gameResultText =`Game Over! You Win! Score: ${playerScore} - ${computerScore}`;
+  } else if (playerScore < computerScore) {
+    gameResultText = `Game Over! You lose! ${playerScore} - ${computerScore}`;
+  } else {
+    gameResultText = `Gamer Over! You Tied! ${playerScore} - ${computerScore}`;
+  }
+
+  let gameResult = document.querySelector(".gameResult");
+  gameResult.textContent = gameResultText;
+  console.log(gameResultText);
 }
-
-/*
-//playGame();
-function playGame() {
-  let playerScore = 0;
-  let computerScore = 0;
-  let round = 0;
-  let playerSelection;
-  let computerSelection;
-
-  while (round < 5) {
-    while (!options.includes(playerSelection)) {
-      playerSelection = getPlayerChoice();
-      if (playerSelection)
-        playerSelection = playerSelection.trim().toUpperCase();
-    }
-
-    computerSelection = getComputerChoice();
-    let roundResult = playRound(playerSelection, computerSelection);
-    if (roundResult == "tie") {
-      alert(`You tied this round!`);
-    } else if (roundResult == "win") {
-      playerScore++;
-      alert(
-        `You win this round! ${playerSelection} beats ${computerSelection}!`
-      );
-    } else if (roundResult == "lose") {
-      computerScore++;
-      alert(
-        `You lose this round! ${computerSelection} beats ${playerSelection}!`
-      );
-    }
-
-    playerSelection = "";
-    round++;
-  }
-
-  if (playerScore > computerScore)
-    alert(`Game Over! You Win! Score: ${playerScore} - ${computerScore}`);
-  else if (playerScore < computerScore)
-    alert(`Game Over! You lose! ${playerScore} - ${computerScore}`);
-  else alert(`Gamer Over! You Tied! ${playerScore} - ${computerScore}`);
-} */

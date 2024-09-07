@@ -1,0 +1,91 @@
+@font-face {
+  font-family: "Sharpie-Variable";
+  src: url("fonts/Sharpie-Variable.woff2") format("woff2"),
+    url("fonts/Sharpie-Variable.woff") format("woff"),
+    url("fonts/Sharpie-Variable.ttf") format("truetype");
+  font-weight: 300 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Ranade-Variable";
+  src: url("fonts/Ranade-Variable.woff2") format("woff2"),
+    url("fonts/Ranade-Variable.woff") format("woff"),
+    url("fonts/Ranade-Variable.ttf") format("truetype");
+  font-weight: 100 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+h2 {
+  color: #3d405b;
+  margin: 0;
+  font-size: 30px;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f1de;
+  height: 100vh;
+}
+
+.resultsArea h2,
+button {
+  font-family: "Ranade-Variable", tahoma, sans-serif;
+}
+
+button {
+  color: #3d405b;
+  background-color: #81b29a;
+  border: solid #3d405b;
+  height: 75px;
+  width: 150px;
+  font-size: 30px;
+}
+
+.scoreArea {
+  display: flex;
+  justify-content: space-evenly;
+  font-family: "Sharpie-Variable", "courier new", monospace;
+  color: #e07a5f;
+}
+.scoreArea p {
+  font-size: 150px;
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+  font-size: 100px;
+}
+
+.resultsArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  margin-top: 50px;
+}
+
+.buttonArea {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  justify-self: flex-end;
+  margin-top: 150px;
+}
+
+.scoreArea div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
