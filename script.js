@@ -1,6 +1,5 @@
 "use strict";
 
-
 let options = ["ROCK", "PAPER", "SCISSORS"];
 
 let playerScore = 0;
@@ -72,7 +71,7 @@ function endGame() {
   }
   let gameResultText;
   if (playerScore > computerScore) {
-    gameResultText =`Game Over! You Win! Score: ${playerScore} - ${computerScore}`;
+    gameResultText = `Game Over! You Win! Score: ${playerScore} - ${computerScore}`;
   } else if (playerScore < computerScore) {
     gameResultText = `Game Over! You lose! ${playerScore} - ${computerScore}`;
   } else {
